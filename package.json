@@ -1,0 +1,28 @@
+{
+	"name": "orpcmod",
+	"module": "src/index.ts",
+	"type": "module",
+	"version": "0.0.1",
+	"bin": {
+		"orpcmod": "./src/cli.ts"
+	},
+	"scripts": {
+		"fmt": "bunx biome format --write"
+	},
+	"devDependencies": {
+		"@ai-sdk/openai-compatible": "^1.0.13",
+		"@biomejs/biome": "2.2.2",
+		"@types/bun": "latest",
+		"ai": "^5.0.29",
+		"find-up-simple": "^1.0.1",
+		"ts-pattern": "^5.8.0"
+	},
+	"peerDependencies": {
+		"typescript": "^5",
+		"@orpc/server": "^1.8",
+		"zod": "^4"
+	},
+	"orpcmod": {
+		"routers": "./test/routers"
+	}
+}
