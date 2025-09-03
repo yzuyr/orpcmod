@@ -6,6 +6,12 @@
 	"bin": {
 		"orpcmod": "./dist/cli"
 	},
+	"files": [
+		"dist",
+		"package.json",
+		"README.md",
+		"LICENSE"
+	],
 	"scripts": {
 		"build": "bun build ./src/cli.ts --compile --outfile dist/cli",
 		"fmt": "bunx biome format --write"
