@@ -4,9 +4,10 @@
 	"type": "module",
 	"version": "0.0.1",
 	"bin": {
-		"orpcmod": "./src/cli.ts"
+		"orpcmod": "./dist/cli"
 	},
 	"scripts": {
+		"build": "bun build ./src/cli.ts --compile --outfile dist/cli",
 		"fmt": "bunx biome format --write"
 	},
 	"devDependencies": {
