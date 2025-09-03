@@ -34,14 +34,15 @@ async function run() {
 	return match(commandName)
 		.with("add", async () => {
 			const packageJsonPath = await findUp("package.json", {
-				cwd: __dirname,
+				cwd: process.cwd(),
 			});
 			let cwd = process.cwd();
 			if (packageJsonPath) {
 				const packageContent = await Bun.file(packageJsonPath).text();
 				const packageJson = JSON.parse(packageContent);
 				if (packageJson?.orpcmod?.routers) {
-					cwd = path.join(cwd, packageJson.orpcmod.routers);
+					const packageDirname = path.dirname(packageJsonPath);
+					cwd = path.join(packageDirname, packageJson.orpcmod.routers);
 				}
 			}
 			const target = `https://raw.githubusercontent.com/${REPO}/main/routers/${commandValue}.ts`;
